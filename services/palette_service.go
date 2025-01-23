@@ -59,12 +59,9 @@ func GeneratePaletteName(colors []models.Color) string {
 		return colors[0].Name // Return the first color name if there are not enough words
 	}
 
-	fmt.Printf("allWords: %v\n", allWords)
-
 	firstIndex := rand.Intn(len(allWords))
 	secondIndex := rand.Intn(len(allWords))
-	fmt.Print("firstIndex: ", firstIndex, " secondIndex: ", secondIndex, "\n")
-	// Compare memory addresses to ensure we don't pick the same words
+
 	for firstIndex == secondIndex {
 		secondIndex = rand.Intn(len(allWords))
 	}
