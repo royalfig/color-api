@@ -13,6 +13,7 @@ func GetColorName(c *gin.Context) {
 	if err == nil {
 		color.MatchType = "exact"
 		color.OriginalColor = hex
+		c.Header("Cache-Control", "public, max-age=31536000, immutable")
 		c.JSON(http.StatusOK, gin.H{"color": color})
 		return
 	}
@@ -25,6 +26,7 @@ func GetColorName(c *gin.Context) {
 	closestColor.MatchType = "nearest"
 	closestColor.OriginalColor = hex
 
+	c.Header("Cache-Control", "public, max-age=31536000, immutable")
 	c.JSON(http.StatusOK, gin.H{"color": closestColor})
 }
 
@@ -38,5 +40,6 @@ func GetPaletteNames(c *gin.Context) {
 
 	paletteName := services.GeneratePaletteName(colors)
 
+	c.Header("Cache-Control", "public, max-age=31536000, immutable")
 	c.JSON(http.StatusOK, gin.H{"palette_name": paletteName, "colors": colors})
 }

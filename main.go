@@ -21,7 +21,7 @@ func main() {
 		AllowOrigins:  []string{"http://colorpalette.pro", "http://localhost:5173"},
 		AllowMethods:  []string{"GET"},
 		AllowHeaders:  []string{"Origin", "Content-Type"},
-		ExposeHeaders: []string{"Content-Length"},
+		ExposeHeaders: []string{"Content-Length", "Cache-Control"},
 		MaxAge:        12 * time.Hour,
 	}))
 
