@@ -18,7 +18,7 @@ func main() {
 	r := gin.Default()
 
 	r.Use(cors.New(cors.Config{
-		AllowOrigins:  []string{"http://colorpalette.pro", "http://localhost:5173"},
+		AllowOrigins:  []string{"https://colorpalette.pro", "http://localhost:5173"},
 		AllowMethods:  []string{"GET"},
 		AllowHeaders:  []string{"Origin", "Content-Type"},
 		ExposeHeaders: []string{"Content-Length", "Cache-Control"},
